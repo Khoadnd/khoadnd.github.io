@@ -1,0 +1,234 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Form Đăng Ký</title>
+    <style>
+        @keyframes example {
+            from {
+                top: 0px;
+            }
+
+            to {
+                top: 150px;
+                background-color: #CCFF66;
+            }
+        }
+
+        #wrapper {
+            width: 500px;
+            height: 300px;
+            background-color: #0F0;
+            margin: auto;
+            border-radius: 20px;
+            animation-name: example;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+
+        #content {
+            background-color: #FC0;
+
+        }
+
+        .left {
+            background-color: #0F0;
+            width: 215px;
+            float: left;
+            height: 250px;
+            padding-left: 15px;
+
+        }
+
+        .right {
+            width: 220px;
+            float: right;
+            height: 250px;
+            padding-left: 50px;
+            background-color: #FF0;
+        }
+
+        .footer {
+            background-color: #CFF;
+            clear: both;
+            text-align: center;
+
+
+
+        }
+
+        input[type=password] {
+
+            height: 25px;
+            border-radius: 10px;
+
+            size: 50;
+            border: #F00 solid 2px;
+        }
+
+        input[type=text] {
+
+            height: 25px;
+            border-radius: 5px;
+            size: 50;
+            border: #00F solid 2px;
+            margin-top: 5px;
+        }
+
+        input[type=submit],
+        [type=button] {
+            border-radius: 15px;
+            background-color: #0FF;
+            height: 30px;
+            width: 100px;
+
+        }
+
+        input[type=button]:hover,
+        [type=submit]:hover {
+            background-color: #FF0000
+        }
+
+            {
+            border-radius: 15px;
+            background-color: #33CC00
+        }
+
+        p {
+            margin: 0px;
+            margin-top: 5px;
+        }
+
+        .daux {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            position: absolute;
+            font-size: 15px;
+            top: 10px;
+            right: 35px;
+            background-color: #FF0000;
+        }
+
+        .daux:hover {
+            background-color: #0CF;
+        }
+    </style>
+    <script>
+        var bien = 0;
+        function thaydoivitri() {
+            if (bien % 3 == 0) {
+                document.getElementById("tieude").style.textAlign = "center";
+                bien++;
+            }
+            else if (bien % 3 == 1) {
+                document.getElementById("tieude").style.textAlign = "right";
+                bien++;
+            }
+            else if (bien % 3 == 2) {
+                document.getElementById("tieude").style.textAlign = "left";
+                bien++;
+            }
+            if (bien == 5)
+                bien = 0;
+
+        }
+        function dongdangky() {
+
+            document.getElementById("wrapper").style.display = "none";
+
+
+        }
+
+        function thaydoigiatrithuoctinh() {
+
+            document.getElementById("tieude").setAttribute("style", "width:100%; height:40px; padding-top:15px; position:relative;background-color: red;");
+
+        }
+        function kiemtradangky() {
+
+            if (document.getElementById('hoten').value == "") {
+                alert("hoten rong");
+                document.getElementById('hoten').focus();
+                return false;
+            }
+            if (document.getElementById('diachi').value == "") {
+                alert("dia chi rong");
+                document.getElementById('diachi').focus();
+                return false;
+            }
+            if (document.getElementById('diachi').value.length < 5) {
+                alert("chieu dai dia chi be hon 5");
+                return false;
+            }
+            if (document.getElementById('dienthoai').value == "") {
+                alert("dien thoai rong");
+                document.getElementById('dienthoai').focus();
+                return false;
+            }
+            if (document.getElementById('tendangnhap').value == "") {
+                alert("ten mat khau rong");
+                document.getElementById('tendangnhap').focus();
+                return false;
+            }
+            if (document.getElementById('matkhau').value == "") {
+                alert("mat khau rong");
+                document.getElementById('matkhau').focus();
+                return false;
+            }
+            if (document.getElementById('matkhaulai').value == "") {
+                alert("mat khau lai rong");
+                document.getElementById('diachi').focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <div style="position:relative; height:800px; width:100%; background-color:#0FF; margin:auto">
+        <form action="Formdangky.html" method="get" onsubmit="return kiemtradangky();">
+            <div id="wrapper" style="position:absolute; left:30%; top:20%; display:block">
+                <div id="tieude"
+                    style="width:100%; height:40px; padding-left:25px; padding-top:15px; position:relative; te">
+                    <marquee align="left" behavior="alternate" loop="3">ĐĂNG KÝ</marquee>
+                    <div class="daux" onclick="dongdangky();"><a href="#">X</a></div>
+                </div>
+                <div id="content">
+                    <div class="left">
+                        <p>Họ và tên</p>
+                        <input id="hoten" type="text" value="" name="txthoten" placeholder="Nhập vào họ tên" />
+                        <p>Địa chỉ</p>
+                        <input type="text" id="diachi" value="" name="txtdiachi" maxlength="5"
+                            placeholder="Nhập vào địa chỉ" />
+                        <p>Điện Thoại</p>
+                        <input id="dienthoai" type="text" value="" name="txtdiathoai"
+                            placeholder="Nhập vào điện thoại" />
+                        <p>Giới tính</p>
+                        <input type="radio" name="rdgioitinh" value="nam" /><span style="font-size:20px">Nam</span>
+                        <input type="radio" name="rdgioitinh" value="nu" /><span style="font-size:20px">Nữ</span>
+                    </div>
+                    <div class="right">
+                        <p>Tên Đăng nhập</p>
+                        <input id="tendangnhap" type="text" value="" size="20" name="txttendangnhap" />
+                        <p>Mật khẩu</p>
+                        <input id="matkhau" type="password" value="" size="20" name="txtmatkhau" />
+                        <p>Mật khẩu lại</p>
+                        <input id="matkhaulai" type="password" value="" size="20" name="txtmatkhaulai" />
+                    </div>
+                    <div class="footer">
+                        <input type="submit" size="20" value="ĐĂNG KÝ" />
+                        <input type="button" size="20" value="THAY ĐỔI" onclick="thaydoigiatrithuoctinh();" />
+                        <input type="button" size="20" value="THAY ĐỔI VỊ TRÍ" onclick="thaydoivitri();" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
